@@ -7,6 +7,9 @@ d3.json("samples.json").then( (data)=>{
     jsondata = data;
     console.log(jsondata);
     dropdown()
+    metadata()
+    chart()
+
 });
 
 // Function for creating the dropdowns
@@ -32,9 +35,15 @@ var location = jsondata.metadata[0].location
 var bbtype = jsondata.metadata[0].bbtype  
 var wfreq = jsondata.metadata[0].wfreq 
 
+
+
 var mData = d3.select("#sample-metadata");
+// clear the html out
+// var sampMeta = jsondata.metadata[0];
+// Object.entries(sampMeta).forEach(([puppies, kittens]) => {
+//        mData.append("p").text(`${puppies}: ${kittens}`);
 
-
+// });
 mData.append("panel-body").property("value",id).text(`id: ${id}`);
 mData.append("br");
 mData.append("panel-body").property("value",ethnicity).text(`ethnicity: ${ethnicity}`);
